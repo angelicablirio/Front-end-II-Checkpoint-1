@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Blog lembranças de viagens</title>
+</head>
+
+<body>
+
+  <header>
+    <img src="./img/logo.png" alt="logo">
+    <h1 class="title">Galeria de fotos</h1>
+  </header>
+
+  <h2 class="subtitle">Insira as fotos das suas viagens aqui:</h2>
+
+  <form class="container_form">
+
+    <div class="row">
+      <div class="inputbox">
+        <label for="title">Cidade:</label>
+        <input type="text" id="title" required>
+      </div>
+      <div class="inputbox">
+        <label for="category">Tipo da viagem:</label>
+        <select name="category" id="category">
+          <option value="" selected disabled>Selecione uma opção</option>
+          <option value="Nacional">Nacional</option>
+          <option value="Internacional">Internacional</option>
+        </select>
+      </div>
+    </div>
+    <form>
+      <div class="row">
+        <div class="inputbox">
+          <label for="image">URL da foto:</label>
+          <input type="text" id="img" required>
+        </div>
+        <div class="inputbox">
+          <label for="description">Descrição:</label>
+          <input type="text" id="description" required>
+        </div>
+      </div>
+      <div>
+        <button id="btnLimpar">Limpar</button>
+        <button id="btnSalvar">Salvar</button>
+      </div>
+
+    </form>
+
+    <div class="container_main">
+      <div class="item">
+        <img src="https://i2.wp.com/turismo.eurodicas.com.br/wp-content/uploads/2019/10/edimburgo.jpg?fit=1360%2C907&ssl=1">
+        <h2>Edimburgo - Escócia</h2>
+        <h3>Viagem: Internacional<h3>
+        <p>
+          Edimburgo é a compacta e elevada capital da Escócia, com uma cidade velha medieval e uma elegante cidade nova georgiana que inclui jardins e construções neoclássicas. Em um ponto mais elevado da cidade, fica o Castelo de Edimburgo, que abriga as joias da coroa da Escócia e a Pedra do Destino, usada na coroação dos governantes escoceses.
+        </p>
+      </div>
+    </div>
+
+    <script src="scripts.js"></script>
+
+  
+</body>
+
+</html>
