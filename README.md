@@ -1,6 +1,6 @@
 <h1>Checkpoint I - Front-end II</h1>
 
-<a href:"https://angelicablirio.github.io/Front-end-II-Checkpoint-1/">Galeria de Fotos<a>
+<a href="https://angelicablirio.github.io/Front-end-II-Checkpoint-1/">Galeria de Fotos<a>
 
 <h2>Integrantes</h2>
 
