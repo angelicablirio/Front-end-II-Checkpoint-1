@@ -7,7 +7,6 @@
 <ul>
   <li>Angelica Lirio</li>
   <li>Alan Menezes</li>
-  <li>Andressa Dantas</li>
 </ul>
 
 <h3>Objetivo</h3>
