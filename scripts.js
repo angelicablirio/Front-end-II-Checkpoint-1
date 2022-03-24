@@ -1,57 +1,58 @@
-let elementTitle = document.querySelector('#title')
-let elementDescription = document.querySelector('#description')
-let elementImage = document.querySelector('#img')
-let elementCategory = document.querySelector('#category')
-let elementBtnSalvar = document.querySelector('#btnSalvar')
-let elementBtnLimpar= document.querySelector('#btnLimpar')
-let elementContainer = document.querySelector('.container_main')
-let posts = []
+//Busca os elementos do HTML
+const elementTitle = document.querySelector('#title')
+const elementDescription = document.querySelector('#description')
+const elementImage = document.querySelector('#img')
+const elementCategory = document.querySelector('#category')
+const elementBtnSalvar = document.querySelector('#btnSalvar')
+const elementBtnLimpar= document.querySelector('#btnLimpar')
+const elementContainer = document.querySelector('.container_main')
 
-window.onload = function getPostLocalStorage(){
-  let postsInseridos = JSON.parse(localStorage.getItem('posts'))
-    for(let post of postsInseridos){
-        elementContainer.innerHTML +=`
-        <div class="item">
-          <img src="${post.image}">
-          <h2>${post.title}</h2>
-          <h3>Viagem: ${post.category}<h3>
-          <p>
-            ${post.description}
-          </p>
-        </div>
-      `
-      }
-    }
+//Busca as informações do localStorage e insere no HTML, caso não tenha gera um array vazio
+let posts = JSON.parse(localStorage.getItem('posts')) || []
+
+for(let post of posts){
+  elementContainer.innerHTML +=`
+   <div class="item">
+    <img src="${post.image}">
+      <h2>${post.title}</h2>       
+      <h3>Viagem: ${post.category}<h3>
+       <p>
+         ${post.description}
+       </p>
+     </div>
+   `
+}
+
+//Função para inserir o post no HTML e no localStorage
 
 function insert(){
 
-  let postPendente = {
-    title: elementTitle.value,
-    category: elementCategory.options[elementCategory.selectedIndex].value,
-    description: elementDescription.value,
-    image: elementImage.value
-  }
-
-  if(elementTitle.value !== '' &&
-    elementDescription.value !== '' &&
-    elementDescription.value !== '' &&
-    elementImage.value !== ''
+  if(elementTitle.checkValidity() &&
+    elementCategory.checkValidity() &&
+    elementDescription.checkValidity() &&
+    elementImage.checkValidity()
     ){
+
+      let postPendente = {
+        title: elementTitle.value,
+        category: elementCategory.options[elementCategory.selectedIndex].value,
+        description: elementDescription.value,
+        image: elementImage.value
+      }
+
       posts.push(postPendente)
       localStorage.setItem('posts', JSON.stringify(posts))
-      for(let post of posts){
-        posts = []
-        elementContainer.innerHTML +=`
-          <div class="item">
-            <img src="${post.image}">
-            <h2>${post.title}</h2>
-            <h3>Viagem: ${post.category}<h3>
-            <p>
-              ${post.description}
-            </p>
-          </div>
-        `
-      }
+
+      elementContainer.innerHTML +=`
+        <div class="item">
+          <img src="${postPendente.image}">
+          <h2>${postPendente.title}</h2>
+          <h3>Viagem: ${postPendente.category}<h3>
+          <p>
+            ${postPendente.description}
+          </p>
+        </div>
+      `
     }else{
       alert('Por favor, preencha as informações!')
   }
@@ -67,7 +68,6 @@ function clear(){
 elementBtnSalvar.addEventListener('click', function(event){
   event.preventDefault()
   insert()
-  clear() 
 })
 
 elementBtnLimpar.addEventListener('click', function(event){
