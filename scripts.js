@@ -54,7 +54,7 @@ function insert(){
         </div>
       `
     }else{
-      alert('Por favor, preencha as informações!')
+      alert('Por favor, preencha todas as informações!')
   }
 }
 
